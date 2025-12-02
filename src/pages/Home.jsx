@@ -92,29 +92,29 @@ const Home = () => {
     <div className="min-h-screen bg-white">
       <Navbar onSearch={handleSearch} />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Header Section */}
-        <div className="mb-12">
-          <div className="flex items-center justify-between mb-6">
+        <div className="mb-6">
+          <div className="flex items-center justify-between mb-4">
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-2">
+              <h2 className="text-2xl font-bold text-gray-900 mb-1">
                 Discover Curated Fashion
               </h2>
-              <p className="text-gray-600 text-lg">
+              <p className="text-gray-600 text-sm">
                 {filteredItems.length} {filteredItems.length === 1 ? 'item' : 'items'} available
               </p>
             </div>
 
             {/* Filter/Sort Options */}
-            <div className="flex gap-3">
-              <button className="px-4 py-2.5 border border-gray-300 rounded-xl text-gray-700 hover:border-gray-400 transition-colors flex items-center gap-2 bg-white">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex gap-2">
+              <button className="px-3 py-2 border border-gray-300 rounded-lg text-gray-700 hover:border-gray-400 transition-colors flex items-center gap-1.5 bg-white text-sm">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
                 </svg>
                 Filter
               </button>
-              <button className="px-4 py-2.5 border border-gray-300 rounded-xl text-gray-700 hover:border-gray-400 transition-colors flex items-center gap-2 bg-white">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <button className="px-3 py-2 border border-gray-300 rounded-lg text-gray-700 hover:border-gray-400 transition-colors flex items-center gap-1.5 bg-white text-sm">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
                 </svg>
                 Sort
@@ -123,20 +123,20 @@ const Home = () => {
           </div>
 
           {/* Category Pills */}
-          <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
-            <button className="px-5 py-2 bg-gray-900 text-white rounded-full text-sm font-medium whitespace-nowrap">
+          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+            <button className="px-3 py-1.5 bg-gray-900 text-white rounded-full text-xs font-medium whitespace-nowrap">
               All Items
             </button>
-            <button className="px-5 py-2 bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-full text-sm font-medium whitespace-nowrap transition-colors">
+            <button className="px-3 py-1.5 bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-full text-xs font-medium whitespace-nowrap transition-colors">
               Clothing
             </button>
-            <button className="px-5 py-2 bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-full text-sm font-medium whitespace-nowrap transition-colors">
+            <button className="px-3 py-1.5 bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-full text-xs font-medium whitespace-nowrap transition-colors">
               Shoes
             </button>
-            <button className="px-5 py-2 bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-full text-sm font-medium whitespace-nowrap transition-colors">
+            <button className="px-3 py-1.5 bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-full text-xs font-medium whitespace-nowrap transition-colors">
               Accessories
             </button>
-            <button className="px-5 py-2 bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-full text-sm font-medium whitespace-nowrap transition-colors">
+            <button className="px-3 py-1.5 bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-full text-xs font-medium whitespace-nowrap transition-colors">
               Verified Only
             </button>
           </div>
@@ -154,7 +154,7 @@ const Home = () => {
             <p className="text-gray-600">Try adjusting your search or filters</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
             {filteredItems.map((item) => (
               <ItemCard key={item.id} item={item} />
             ))}

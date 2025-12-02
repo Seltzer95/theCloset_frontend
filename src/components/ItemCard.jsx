@@ -2,43 +2,43 @@ const ItemCard = ({ item }) => {
   const imageUrl = item.images && item.images.length > 0 ? item.images[0] : null;
 
   return (
-    <div className="group bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 border border-gray-100 cursor-pointer">
+    <div className="group bg-white rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-100 cursor-pointer">
       {/* Image Container */}
-      <div className="relative aspect-[3/4] bg-gray-100 overflow-hidden">
+      <div className="relative aspect-square bg-gray-100 overflow-hidden">
         {imageUrl ? (
           <img
             src={imageUrl}
             alt={item.name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100">
-            <svg className="w-24 h-24 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-12 h-12 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
           </div>
         )}
 
         {/* Overlay Badges */}
-        <div className="absolute top-3 left-3 right-3 flex justify-between items-start">
+        <div className="absolute top-2 left-2 right-2 flex justify-between items-start">
           {item.verified && (
-            <div className="bg-white/95 backdrop-blur-sm text-indigo-600 text-xs px-2.5 py-1.5 rounded-lg font-semibold shadow-lg flex items-center gap-1.5">
-              <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+            <div className="bg-white/95 backdrop-blur-sm text-indigo-600 text-xs px-2 py-1 rounded-md font-semibold shadow-md flex items-center gap-1">
+              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
               Verified
             </div>
           )}
-          <button className="ml-auto bg-white/95 backdrop-blur-sm p-2 rounded-full shadow-lg hover:bg-white transition-colors">
-            <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button className="ml-auto bg-white/95 backdrop-blur-sm p-1.5 rounded-full shadow-md hover:bg-white transition-colors">
+            <svg className="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
           </button>
         </div>
 
         {/* Condition Badge */}
-        <div className="absolute bottom-3 left-3">
-          <span className={`text-xs px-3 py-1.5 rounded-full font-semibold backdrop-blur-sm ${
+        <div className="absolute bottom-2 left-2">
+          <span className={`text-xs px-2 py-1 rounded-md font-semibold backdrop-blur-sm ${
             item.condition === 'Like New' ? 'bg-emerald-500/90 text-white' :
             item.condition === 'Excellent' ? 'bg-blue-500/90 text-white' :
             'bg-amber-500/90 text-white'
@@ -49,47 +49,30 @@ const ItemCard = ({ item }) => {
       </div>
 
       {/* Content */}
-      <div className="p-5">
+      <div className="p-3">
         {/* Header */}
-        <div className="mb-3">
-          <div className="flex items-start justify-between gap-2 mb-1">
-            <h3 className="text-lg font-semibold text-gray-900 line-clamp-2 flex-1 leading-tight">{item.name}</h3>
-            <span className="text-xl font-bold text-gray-900 whitespace-nowrap">${item.price}</span>
+        <div className="mb-2">
+          <div className="flex items-start justify-between gap-2 mb-0.5">
+            <h3 className="text-sm font-semibold text-gray-900 line-clamp-1 flex-1">{item.name}</h3>
+            <span className="text-sm font-bold text-gray-900 whitespace-nowrap">${item.price}</span>
           </div>
           {item.brand && (
-            <p className="text-sm text-gray-600 font-medium">{item.brand}</p>
+            <p className="text-xs text-gray-600">{item.brand}</p>
           )}
         </div>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-2 mb-4">
-          <span className="text-xs px-2.5 py-1 bg-gray-100 text-gray-700 rounded-md font-medium">
+        <div className="flex flex-wrap gap-1 mb-2">
+          <span className="text-xs px-2 py-0.5 bg-gray-100 text-gray-700 rounded font-medium">
             {item.category}
           </span>
-          <span className="text-xs px-2.5 py-1 bg-gray-100 text-gray-700 rounded-md font-medium">
+          <span className="text-xs px-2 py-0.5 bg-gray-100 text-gray-700 rounded font-medium">
             Size {item.size}
           </span>
         </div>
 
-        {/* Seller Info */}
-        {item.seller && (
-          <div className="flex items-center gap-2 pb-4 mb-4 border-b border-gray-100">
-            <div className="w-6 h-6 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full flex items-center justify-center text-white text-xs font-bold">
-              {item.seller.charAt(0).toUpperCase()}
-            </div>
-            <span className="text-sm text-gray-600">{item.seller}</span>
-          </div>
-        )}
-
-        {/* Description */}
-        {item.description && (
-          <p className="text-sm text-gray-600 line-clamp-2 leading-relaxed mb-4">
-            {item.description}
-          </p>
-        )}
-
         {/* CTA Button */}
-        <button className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 rounded-xl font-medium transition-all duration-200 transform group-hover:scale-[1.02]">
+        <button className="w-full bg-gray-900 hover:bg-gray-800 text-white py-2 rounded-lg text-sm font-medium transition-all duration-200">
           View Details
         </button>
       </div>
