@@ -84,29 +84,29 @@ const Home = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-purple-50 to-pink-50">
       <Navbar onSearch={handleSearch} />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="mb-10 text-center">
+          <h2 className="text-5xl font-extrabold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
             Your Virtual Closet
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-700 text-lg font-medium">
             {filteredItems.length} {filteredItems.length === 1 ? 'item' : 'items'} available
           </p>
         </div>
 
         {filteredItems.length === 0 ? (
-          <div className="text-center py-16">
-            <div className="text-gray-400 text-6xl mb-4">🔍</div>
-            <p className="text-gray-600 text-xl">No items found</p>
-            <p className="text-gray-500 mt-2">Try a different search term</p>
+          <div className="text-center py-20 bg-white rounded-2xl shadow-lg">
+            <div className="text-gray-300 text-8xl mb-6">🔍</div>
+            <p className="text-gray-700 text-2xl font-semibold mb-2">No items found</p>
+            <p className="text-gray-500 text-lg">Try a different search term</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {filteredItems.map((item) => (
-              <ItemCard key={item._id} item={item} />
+              <ItemCard key={item.id} item={item} />
             ))}
           </div>
         )}

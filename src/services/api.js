@@ -12,20 +12,27 @@ const api = axios.create({
 export const itemsAPI = {
   // Get all items
   getAllItems: async () => {
-    const response = await api.get('/items');
-    return response.data;
+    const response = await api.get('/buyer/browse');
+    return response.data.items; // Backend returns { totalItems, filters, items }
   },
 
   // Get item by ID
   getItemById: async (id) => {
-    const response = await api.get(`/items/${id}`);
-    return response.data;
+    const response = await api.get(`/buyer/browse`);
+    const item = response.data.items.find(item => item.id === id);
+    return item;
   },
 
   // Search items
   searchItems: async (query) => {
-    const response = await api.get(`/items/search?q=${query}`);
-    return response.data;
+    const response = await api.get('/buyer/browse');
+    const items = response.data.items;
+    // Client-side filtering since backend doesn't have search endpoint
+    return items.filter(item =>
+      item.name.toLowerCase().includes(query.toLowerCase()) ||
+      item.category.toLowerCase().includes(query.toLowerCase()) ||
+      (item.brand && item.brand.toLowerCase().includes(query.toLowerCase()))
+    );
   },
 };
 
